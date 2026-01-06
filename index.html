@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>India Global Exports - Your Gateway to Global Trade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #FFB800;
+      --primary-dark: #E6A600;
+      --primary-light: #FFF4D9;
+      --dark: #0F172A;
+      --gray: #64748B;
+      --light: #F8FAFC;
+      --white: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFE680 50%, #FFD966 100%);
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+      border-radius: 50%;
+      top: -200px;
+      right: -200px;
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.3; }
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .hero-content .highlight {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      box-shadow: 0 10px 30px rgba(255, 184, 0, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 184, 0, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--dark);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 500px;
+    }
+
+    .floating-card {
+      position: absolute;
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-card:nth-child(1) {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .floating-card:nth-child(2) {
+      top: 50%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    .floating-card:nth-child(3) {
+      bottom: 10%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .floating-card h4 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .floating-card p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Stats Section */
+    .stats {
+      background: var(--dark);
+      color: var(--white);
+      padding: 4rem 2rem;
+    }
+
+    .stats-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+    }
+
+    .stat-item p {
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+
+    /* Services Section */
+    .services {
+      padding: 6rem 2rem;
+      background: var(--light);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .section-header p {
+      font-size: 1.2rem;
+      color: var(--gray);
+    }
+
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+
+    .service-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+
+    .service-card:hover .service-image {
+      transform: scale(1.1);
+    }
+
+    .service-content {
+      padding: 2rem;
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .service-content p {
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .learn-more {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s;
+    }
+
+    .learn-more:hover {
+      gap: 1rem;
+    }
+
+    /* About Section */
+    .about {
+      padding: 6rem 2rem;
+      background: var(--white);
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--primary);
+      color: var(--white);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255, 184, 0, 0.4);
+    }
+
+    .about-badge h4 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .about-badge p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .about-content h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .about-content p {
+      color: var(--gray);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .features-list {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--light);
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+
+    .feature-item:hover {
+      background: var(--primary-light);
+      transform: translateX(5px);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+      color: var(--white);
+    }
+
+    .contact-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-container h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .contact-container .subtitle {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 3rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-item {
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s;
+    }
+
+    .contact-item:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-5px);
+    }
+
+    .contact-item .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .contact-item p {
+      color: var(--gray);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: var(--gray);
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-container { grid-template-columns: 1fr; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-visual { height: 300px; }
+      .about-container { grid-template-columns: 1fr; }
+      .section-header h2 { font-size: 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-container">
+      <div class="logo">IGE</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>Bridge India to <span class="highlight">Global Markets</span></h1>
+        <p>Seamless export solutions with end-to-end logistics, quality assurance, and trusted partnerships across 50+ countries.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Start Exporting →</a>
+          <a href="#services" class="btn-secondary">Our Services</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-card">
+          <h4>50+</h4>
+          <p>Countries Served</p>
+        </div>
+        <div class="floating-card">
+          <h4>1000+</h4>
+          <p>Shipments Delivered</p>
+        </div>
+        <div class="floating-card">
+          <h4>98%</h4>
+          <p>Client Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Active Clients</p>
+      </div>
+      <div class="stat-item">
+        <h3>50+</h3>
+        <p>Global Partners</p>
+      </div>
+      <div class="stat-item">
+        <h3>15+</h3>
+        <p>Years Experience</p>
+      </div>
+      <div class="stat-item">
+        <h3>24/7</h3>
+        <p>Support Available</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="section-header">
+      <h2>Comprehensive Export Solutions</h2>
+      <p>Everything you need to succeed in global trade, all in one place</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <img class="service-image" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Global Shipping">
+        <div class="service-content">
+          <div class="service-icon">🚢</div>
+          <h3>Global Shipping</h3>
+          <p>Real-time tracking, customs clearance, and door-to-door delivery across all major ports worldwide.</p>
+          <a href="#contact" class="learn-more">Get Started →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img class="service-image" src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1" alt="Warehousing">
+        <div class="service-content">
+          <div class="service-icon">📦</div>
+          <h3>Smart Warehousing</h3>
+          <p>Climate-controlled facilities with advanced inventory management and quality control systems.</p>
+          <a href="#contact" class="learn-more">Get Started →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img class="service-image" src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088" alt="Logistics">
+        <div class="service-content">
+          <div class="service-icon">🌐</div>
+          <h3>Supply Chain Management</h3>
+          <p>Optimized logistics planning with AI-powered routing and cost-effective multimodal transport.</p>
+          <a href="#contact" class="learn-more">Get Started →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df" alt="Export Business">
+        <div class="about-badge">
+          <h4>15+</h4>
+          <p>Years of Excellence</p>
+        </div>
+      </div>
+      <div class="about-content">
+        <h2>Trusted Export Partner Since 2009</h2>
+        <p>We connect Indian manufacturers with global buyers through reliable logistics, quality assurance, and transparent partnerships. Our extensive network spans across Asia, Europe, Americas, and Africa.</p>
+        <p>From initial consultation to final delivery, we handle every aspect of the export process, ensuring your products reach their destination safely and on time.</p>
+        
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <strong>ISO Certified Operations</strong>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <strong>Customs Compliance Expertise</strong>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <strong>Multilingual Support Team</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-container">
+      <h2>Let's Start Your Export Journey</h2>
+      <p class="subtitle">Get in touch with our expert team for customized solutions</p>
+      
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="icon">📍</div>
+          <h4>Visit Us</h4>
+          <p>Mumbai & Delhi, India</p>
+        </div>
+        <div class="contact-item">
+          <div class="icon">📞</div>
+          <h4>Call Us</h4>
+          <p>+91 9XXXXXXXXX</p>
+        </div>
+        <div class="contact-item">
+          <div class="icon">📧</div>
+          <h4>Email Us</h4>
+          <p>info@indiaglobalexports.com</p>
+        </div>
+      </div>
+
+      <a href="mailto:info@indiaglobalexports.com" class="btn-primary">Send Message →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 India Global Exports. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .stat-item, .feature-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
